@@ -16,7 +16,8 @@ def readTweets(fileName):
 	Read in the tweet data.  This is just tab-delimited.
 	'''
 	rows = [[field.strip() for field in line.split("\t")] for line in codecs.open(fileName, 'r', 'utf-8')]
-	return [(int(row[0]), dateutil.parser.parse(row[1]), row[2], row[3]) for row in rows]
+	return [(int(row[0]), dateutil.parser.parse(row[1]), row[2], unicode(row[3]).encode('ascii', 'ignore')) for row in rows]
+
 
 def processDoc(doc):
 	'''

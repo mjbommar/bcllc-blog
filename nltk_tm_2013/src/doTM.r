@@ -9,4 +9,4 @@ names(tweets) <- c("id", "date", "user", "text")
 
 # Build the corpus and then apply the tm pre-processing methods
 corpus <- Corpus(VectorSource(tweets$text))
-corpus <- tm_map(tm_map(tm_map(corpus, stripWhitespace), tolower), stemDocument)
+corpus <- tm_map(tm_map(corpus, stripWhitespace), tolower)
